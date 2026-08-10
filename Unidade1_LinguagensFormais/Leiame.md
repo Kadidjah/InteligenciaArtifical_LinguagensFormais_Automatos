@@ -1,4 +1,4 @@
-Perfeito. Abaixo está uma versão mais profissional e organizada para um repositório do GitHub, com **sumário, objetivos, conteúdo, exemplos, exercícios e revisão para prova**.
+# Aula 02: Sumário, objetivos, conteúdo, exemplos, exercícios e revisão para prova.
 
 # 📚 Aula 1 — Linguagens Formais e Gramáticas
 
