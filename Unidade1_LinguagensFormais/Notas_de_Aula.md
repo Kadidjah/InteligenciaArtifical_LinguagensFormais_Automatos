@@ -973,5 +973,3 @@ Antes de avançar para a próxima aula, verifique se você consegue explicar:
 
 **Próximo passo:** praticar a identificação de alfabetos, cadeias, prefixos, sufixos e a derivação de palavras por meio de gramáticas formais.
 
-Essa versão já está estruturada para ser salva diretamente como **`README.md`** no repositório da Aula 1.
-
