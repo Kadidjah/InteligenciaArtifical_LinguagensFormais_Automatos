@@ -1,0 +1,30 @@
+Atividade unidade 2 da imagem
+
+IMG 1
+
+R:
+A)
+S→ aS | b
+aS→ aaS
+aaS → aaaS
+aaaS→ aaab
+
+B) A derivação terminou pois a palavra foi gerada e a regra da gramática permite a substituição do 
+não-terminal S pelo terminal b, o que implica no fim da derivação
+
+IMG 2
+
+R:
+A)
+S→ aSb | ϵ
+aSb→ aaSbb
+aaSbb → aaaSbbb
+aaaSbbb→ aaabbb
+B) Não, pois a gramática não permite a substituição do não terminal apenas pelo terminal b, mas 
+sempre adicionando um a junto
+
+IMG 3
+
+R:
+Regular, pois não há nenhum terminal após o não terminal gerado o que se enquadra na regra dos 
+regulares
