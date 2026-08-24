@@ -1,2981 +1,1745 @@
+# Exercícios Comentados — Aulas 01 e 02
 
-writing{variant="document" id="58321" title="Práticas de Linguagem Formal — Linguagem, Alfabeto e Gramática"}
+## Linguagens Formais, Alfabeto, Linguagens e Gramáticas
 
-Práticas de Linguagem Formal
+**Disciplina:** Linguagens Formais e Autômatos
+**Objetivo:** revisar os conceitos fundamentais de **alfabeto, palavras, linguagens e gramáticas**, desenvolvendo também a capacidade de interpretar e ler a notação matemática.
 
-Linguagem, Alfabeto e Gramática
-
-Disciplina: Práticas de Linguagem Formal
-Conteúdo: Linguagem, alfabetos, palavras e gramáticas
-Quantidade: 10 exercícios comentados + 10 exercícios propostos
-
+> **Orientação ao estudante:** primeiro leia e compreenda o exercício comentado. Em seguida, tente resolver o exercício proposto sem consultar o gabarito. Ao final do material, confira suas respostas.
 
 ---
 
-Objetivos
+# 1. Alfabeto
 
-Ao final desta lista, o estudante deverá ser capaz de:
-
-identificar e representar alfabetos;
-
-reconhecer palavras sobre um alfabeto;
-
-determinar o comprimento de uma palavra;
-
-identificar o símbolo vazio ε;
-
-verificar se uma palavra pertence a uma linguagem;
-
-representar linguagens por extensão e por compreensão;
-
-compreender a definição de uma gramática formal;
-
-identificar terminais e não terminais;
-
-realizar derivações simples;
-
-reconhecer palavras geradas por uma gramática.
-
-
-
----
-
-Exercício 1 — Identificando um alfabeto
+## Exercício comentado
 
 Considere o conjunto:
 
-\Sigma = \{0,1\}
+$$
+\Sigma = {0,1}
+$$
 
-Questão
+**Pergunta:** o que significa esse conjunto?
 
-O que representa o conjunto ?
+### Resolução passo a passo
 
-Resolução comentada
+O símbolo $\Sigma$ é utilizado para representar um **alfabeto**.
 
-O símbolo  representa um alfabeto.
-
-Um alfabeto é um conjunto finito e não vazio de símbolos que podem ser utilizados para formar palavras.
+Um alfabeto é um conjunto finito de símbolos que podem ser utilizados para construir palavras.
 
 Neste caso:
 
-\Sigma = \{0,1\}
+$$
+\Sigma = {0,1}
+$$
 
-Portanto, o alfabeto possui dois símbolos:
+O alfabeto possui dois símbolos:
 
+```text
 0
-
 1
+```
 
+### Como se lê?
 
-Algumas palavras que podem ser formadas sobre esse alfabeto são:
+Podemos ler:
 
-0,\quad 1,\quad 00,\quad 01,\quad 10,\quad 11,\quad 0101
+> **"Sigma é o conjunto formado pelos símbolos zero e um."**
 
-Logo, o alfabeto é:
+Ou:
 
-\boxed{\Sigma=\{0,1\}}
+> **"O alfabeto Sigma é formado pelos símbolos 0 e 1."**
 
-Exercício para o estudante
+### Atenção
+
+Os elementos `0` e `1` são **símbolos individuais**.
+
+Não devemos confundir:
+
+```text
+0
+```
+
+com:
+
+```text
+01
+```
+
+O primeiro é um símbolo.
+
+O segundo é uma sequência de símbolos, ou seja, uma **palavra**.
+
+---
+
+## Exercício para o estudante
 
 Considere:
 
-\Sigma = \{a,b,c\}
-
-1. Quantos símbolos existem no alfabeto?
-
-
-2. Liste cinco palavras que podem ser formadas sobre esse alfabeto.
-
-
-3. A palavra abcab utiliza somente símbolos de ?
-
-
-
-
----
-
-Exercício 2 — Verificando se uma sequência é uma palavra
-
-Considere o alfabeto:
-
-\Sigma = \{a,b\}
-
-Determine quais das sequências abaixo são palavras sobre :
-
-a,\quad ab,\quad aba,\quad abc,\quad bba
-
-Resolução comentada
-
-Uma palavra sobre um alfabeto deve possuir somente símbolos pertencentes ao alfabeto.
-
-Como:
-
-\Sigma=\{a,b\}
-
-temos:
-
-a → pertence ao alfabeto → é palavra
-
-ab → utiliza a e b → é palavra
-
-aba → utiliza a e b → é palavra
-
-abc → contém c, que não pertence a  → não é palavra
-
-bba → utiliza b e a → é palavra
-
-
-Portanto:
-
-\boxed{a,\ ab,\ aba,\ bba}
-
-são palavras sobre .
-
-Exercício para o estudante
-
-Considere:
-
-\Sigma=\{0,1\}
-
-Classifique as sequências abaixo como palavras ou não palavras sobre :
-
-001,\quad 1010,\quad 120,\quad 111,\quad 00a
-
-
----
-
-Exercício 3 — Comprimento de uma palavra
-
-Considere a palavra:
-
-w=101101
-
-Determine o comprimento de .
-
-Resolução comentada
-
-O comprimento de uma palavra é a quantidade de símbolos que ela possui.
-
-A palavra:
-
-101101
-
-possui seis símbolos:
-
-1,\ 0,\ 1,\ 1,\ 0,\ 1
-
-Logo:
-
-|w|=6
-
-Portanto:
-
-\boxed{|101101|=6}
-
-Exercício para o estudante
-
-Determine o comprimento das seguintes palavras:
-
-1. 0101
-
-
-2. 111111
-
-
-3. abcabc
-
-
-4. 10000001
-
-
-5. aabbab
-
-
-
-
----
-
-Exercício 4 — A palavra vazia
-
-Considere o alfabeto:
-
-\Sigma=\{a,b\}
-
-Qual é o comprimento da palavra vazia ?
-
-Resolução comentada
-
-A palavra vazia é representada por:
-
-\varepsilon
-
-Ela não possui nenhum símbolo.
-
-Portanto, seu comprimento é:
-
-|\varepsilon|=0
-
-É importante não confundir a palavra vazia com uma palavra que contém algum símbolo.
-
-Assim:
-
-\boxed{|\varepsilon|=0}
-
-Exercício para o estudante
+$$
+\Sigma = {a,b,c}
+$$
 
 Responda:
 
-1. Quantos símbolos existem em ?
-
-
-2. Qual é o valor de ?
-
-
-3. A palavra vazia pode ser considerada uma palavra sobre qualquer alfabeto?
-
-
-
+1. Quantos símbolos existem no alfabeto?
+2. Quais são os símbolos?
+3. O símbolo `a` pertence ao alfabeto?
+4. O símbolo `d` pertence ao alfabeto?
+5. Escreva uma palavra formada por símbolos desse alfabeto.
 
 ---
 
-Exercício 5 — Linguagem por extensão
+# 2. Palavras sobre um alfabeto
+
+## Exercício comentado
 
 Considere:
 
-L=\{a,ab,aba\}
+$$
+\Sigma = {a,b}
+$$
 
-Questão
+Verifique quais das sequências abaixo são palavras construídas sobre esse alfabeto:
 
-Determine se as palavras abaixo pertencem a :
+```text
+abba
+abc
+baab
+d
+```
 
+### Resolução
+
+Uma **palavra** é uma sequência finita de símbolos pertencentes ao alfabeto.
+
+Nosso alfabeto é:
+
+$$
+\Sigma = {a,b}
+$$
+
+### Palavra `abba`
+
+Observe:
+
+```text
+a b b a
+```
+
+Todos os símbolos pertencem ao alfabeto.
+
+Portanto:
+
+$$
+abba \in \Sigma^*
+$$
+
+### Como se lê?
+
+> **"abba pertence ao conjunto de todas as palavras construídas sobre Sigma."**
+
+### Palavra `abc`
+
+Observe:
+
+```text
+a b c
+```
+
+O símbolo `c` pertence ao alfabeto?
+
+Não.
+
+Temos:
+
+$$
+c \notin \Sigma
+$$
+
+Portanto:
+
+$$
+abc \notin \Sigma^*
+$$
+
+### Palavra `baab`
+
+Observe:
+
+```text
+b a a b
+```
+
+Todos os símbolos pertencem a:
+
+$$
+\Sigma = {a,b}
+$$
+
+Logo:
+
+$$
+baab \in \Sigma^*
+$$
+
+### Palavra `d`
+
+O símbolo `d` não pertence ao alfabeto.
+
+Portanto:
+
+$$
+d \notin \Sigma^*
+$$
+
+---
+
+## Exercício para o estudante
+
+Considere:
+
+$$
+\Sigma = {0,1}
+$$
+
+Classifique cada sequência como **palavra válida** ou **não válida**:
+
+| Sequência | Válida? | Justificativa |
+| --------- | ------- | ------------- |
+| `0101`    |         |               |
+| `00110`   |         |               |
+| `012`     |         |               |
+| `111`     |         |               |
+| `10a`     |         |               |
+
+---
+
+# 3. Pertinência de símbolos e palavras
+
+## Exercício comentado
+
+Considere:
+
+$$
+\Sigma = {a,b,c}
+$$
+
+Determine se:
+
+$$
+a \in \Sigma
+$$
+
+e se:
+
+$$
+ab \in \Sigma
+$$
+
+### Resolução
+
+Primeiro analisamos:
+
+$$
+a \in \Sigma
+$$
+
+O símbolo `a` está dentro do conjunto?
+
+Sim.
+
+Portanto:
+
+$$
+\boxed{a \in \Sigma}
+$$
+
+Agora observe:
+
+```text
+ab
+```
+
+`ab` possui dois símbolos:
+
+```text
+a b
+```
+
+Portanto, `ab` é uma **palavra**, e não um símbolo individual do alfabeto.
+
+Assim:
+
+$$
+ab \notin \Sigma
+$$
+
+Porém:
+
+$$
+ab \in \Sigma^*
+$$
+
+### Como se lê?
+
+$$
+a \in \Sigma
+$$
+
+Lemos:
+
+> **"a pertence a Sigma."**
+
+Já:
+
+$$
+ab \in \Sigma^*
+$$
+
+Lemos:
+
+> **"ab pertence ao conjunto de todas as palavras sobre Sigma."**
+
+### Conceito importante
+
+Não confunda:
+
+$$
+a \in \Sigma
+$$
+
+com:
+
+$$
+ab \in \Sigma
+$$
+
+O primeiro representa um **símbolo**.
+
+O segundo representa uma **palavra**.
+
+---
+
+## Exercício para o estudante
+
+Considere:
+
+$$
+\Sigma = {0,1}
+$$
+
+Determine se as afirmações são **verdadeiras ou falsas**:
+
+1. $0 \in \Sigma$
+2. $1 \in \Sigma$
+3. $01 \in \Sigma$
+4. $01 \in \Sigma^*$
+5. $2 \in \Sigma$
+6. $101 \in \Sigma^*$
+
+Justifique cada resposta.
+
+---
+
+# 4. Linguagem
+
+## Exercício comentado
+
+Considere:
+
+$$
+\Sigma = {a,b}
+$$
+
+e a linguagem:
+
+$$
+L = {a,ab,abb}
+$$
+
+### O que é $L$?
+
+Uma **linguagem** é um conjunto de palavras.
+
+Neste exemplo:
+
+```text
 a
-
-b
-
 ab
+abb
+```
 
-aba
+são as palavras que pertencem à linguagem.
 
-abab
+### Verificando `ab`
 
+Queremos saber:
 
-Resolução comentada
+$$
+ab \in L?
+$$
 
-A linguagem foi definida explicitamente:
+Observe a linguagem:
 
-L=\{a,ab,aba\}
+$$
+L = {a,ab,abb}
+$$
 
-Portanto, pertencem à linguagem somente as palavras que aparecem no conjunto.
-
-Assim:
-
-a\in L
-
-b\notin L
-
-ab\in L
-
-aba\in L
-
-abab\notin L
-
-Logo:
-
-Palavra	Pertence a ?
-
-a	Sim
-b	Não
-ab	Sim
-aba	Sim
-abab	Não
-
-
-Exercício para o estudante
-
-Considere:
-
-L=\{0,01,011,111\}
-
-Determine quais palavras pertencem à linguagem:
-
-0,\quad 00,\quad 01,\quad 011,\quad 11,\quad 111,\quad 0111
-
-
----
-
-Exercício 6 — Linguagem definida por propriedade
-
-Considere o alfabeto:
-
-\Sigma=\{0,1\}
-
-e a linguagem:
-
-L=\{w\in\Sigma^* \mid w\text{ termina em }1\}
-
-Determine se as palavras abaixo pertencem a :
-
-01,\quad 10,\quad 111,\quad 100,\quad 101
-
-Resolução comentada
-
-A condição para pertencer à linguagem é:
-
-> A palavra deve terminar com o símbolo 1.
-
-
-
-Analisando:
-
-01 → termina em 1 → pertence.
-
-10 → termina em 0 → não pertence.
-
-111 → termina em 1 → pertence.
-
-100 → termina em 0 → não pertence.
-
-101 → termina em 1 → pertence.
-
+A palavra `ab` aparece no conjunto.
 
 Portanto:
 
-\boxed{01,\ 111,\ 101\in L}
+$$
+\boxed{ab \in L}
+$$
 
-e:
+### Verificando `ba`
 
-\boxed{10,\ 100\notin L}
+Agora:
 
-Exercício para o estudante
+$$
+ba \in L?
+$$
 
-Considere:
-
-L=\{w\in\{a,b\}^* \mid w\text{ começa com }a\}
-
-Determine quais palavras pertencem a :
-
-a,\quad ab,\quad ba,\quad abb,\quad bba,\quad aaab
-
-
----
-
-Exercício 7 — Identificando uma gramática
-
-Considere a gramática:
-
-G=(V,T,P,S)
-
-com:
-
-V=\{S\}
-
-T=\{a,b\}
-
-e as produções:
-
-S\rightarrow aS
-
-S\rightarrow b
-
-Questão
-
-Identifique os conjuntos de símbolos terminais e não terminais.
-
-Resolução comentada
-
-Uma gramática possui, entre outros elementos:
-
-símbolos não terminais;
-
-símbolos terminais;
-
-produções;
-
-símbolo inicial.
-
-
-Neste exemplo:
-
-V=\{S\}
-
-é o conjunto dos não terminais.
-
-O conjunto:
-
-T=\{a,b\}
-
-é o conjunto dos terminais.
+A palavra `ba` não aparece no conjunto.
 
 Portanto:
 
-Não terminal: S
+$$
+\boxed{ba \notin L}
+$$
 
-Terminais: a e b
+### Como se lê?
 
-Símbolo inicial: S
+$$
+ab \in L
+$$
 
+Lemos:
 
-As produções são:
+> **"ab pertence à linguagem L."**
 
-S\rightarrow aS
+Já:
 
-e
+$$
+ba \notin L
+$$
 
-S\rightarrow b
+Lemos:
 
-Exercício para o estudante
-
-Considere a gramática:
-
-G=(V,T,P,S)
-
-com:
-
-V=\{S,A\}
-
-T=\{0,1\}
-
-e:
-
-S\rightarrow 0A
-
-A\rightarrow 1
-
-Identifique:
-
-1. Os não terminais.
-
-
-2. Os terminais.
-
-
-3. O símbolo inicial.
-
-
-4. As produções da gramática.
-
-
-
+> **"ba não pertence à linguagem L."**
 
 ---
 
-Exercício 8 — Realizando uma derivação
-
-Considere a gramática:
-
-S\rightarrow aS
-
-S\rightarrow b
-
-Questão
-
-Mostre uma derivação para a palavra:
-
-aaab
-
-Resolução comentada
-
-Começamos pelo símbolo inicial:
-
-S
-
-Aplicamos a produção:
-
-S\rightarrow aS
-
-Obtendo:
-
-S\Rightarrow aS
-
-Aplicamos novamente:
-
-aS\Rightarrow aaS
-
-Mais uma vez:
-
-aaS\Rightarrow aaaS
-
-Agora utilizamos:
-
-S\rightarrow b
-
-Então:
-
-aaaS\Rightarrow aaab
-
-A derivação completa é:
-
-\boxed{S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab}
-
-Portanto, a gramática consegue gerar a palavra aaab.
-
-Exercício para o estudante
-
-Utilizando a mesma gramática:
-
-S\rightarrow aS
-
-S\rightarrow b
-
-faça uma derivação para:
-
-aaab
-
-Agora tente fazer também uma derivação para:
-
-aaaab
-
-
----
-
-Exercício 9 — Descobrindo a linguagem de uma gramática
+## Exercício para o estudante
 
 Considere:
 
-S\rightarrow aS
+$$
+L = {0,01,011,0111}
+$$
 
-S\rightarrow b
+Determine se cada palavra pertence à linguagem:
 
-Questão
-
-Descreva a linguagem gerada pela gramática.
-
-Resolução comentada
-
-A produção:
-
-S\rightarrow aS
-
-permite adicionar quantos a forem necessários.
-
-A produção:
-
-S\rightarrow b
-
-encerra a derivação.
-
-Assim, podemos gerar:
-
-b
-
-ab
-
-aab
-
-aaab
-
-aaaab
-
-e assim por diante.
-
-Portanto, a linguagem é:
-
-L=\{a^nb\mid n\geq0\}
-
-Em palavras: a linguagem contém qualquer quantidade de símbolos a, seguida obrigatoriamente por um b.
-
-Exercício para o estudante
-
-Considere a gramática:
-
-S\rightarrow 0S
-
-S\rightarrow 1
-
-1. Escreva as cinco primeiras palavras geradas.
-
-
-2. Escreva a linguagem usando uma expressão matemática semelhante a .
-
-
-3. A palavra 0001 pertence à linguagem?
-
-
-4. A palavra 0010 pertence à linguagem?
-
-
-
+1. $0 \in L$
+2. $01 \in L$
+3. $0111 \in L$
+4. $10 \in L$
+5. $111 \in L$
+6. $011 \in L$
 
 ---
 
-Exercício 10 — Analisando uma gramática completa
+# 5. Descrevendo uma linguagem por padrão
 
-Considere a gramática:
+## Exercício comentado
 
-G=(V,T,P,S)
+Considere:
 
-onde:
+$$
+L = {a,aa,aaa,aaaa,\ldots}
+$$
 
-V=\{S\}
+Qual é o padrão dessa linguagem?
 
-T=\{0,1\}
+### Resolução
 
-e:
+Observe as palavras:
 
-P:
-\begin{cases}
-S\rightarrow 0S\\
-S\rightarrow 1S\\
-S\rightarrow\varepsilon
-\end{cases}
+```text
+a
+aa
+aaa
+aaaa
+aaaaa
+...
+```
 
-Questão
+Todas possuem apenas o símbolo `a`.
 
-Que linguagem essa gramática gera?
+A quantidade de `a` pode aumentar indefinidamente.
 
-Resolução comentada
+Podemos representar essa linguagem por:
 
-As duas primeiras produções permitem acrescentar 0 ou 1:
+$$
+L = {a^n \mid n \geq 1}
+$$
 
-S\rightarrow0S
+### Como se lê?
 
-S\rightarrow1S
+A expressão:
 
-A terceira produção:
+$$
+a^n
+$$
 
-S\rightarrow\varepsilon
+pode ser lida:
 
-permite finalizar a derivação.
+> **"a elevado a n"**
+
+Nesse contexto, significa:
+
+> **"n ocorrências do símbolo a."**
 
 Por exemplo:
 
-S\Rightarrow0S\Rightarrow01S\Rightarrow011S\Rightarrow011\varepsilon
+$$
+a^1 = a
+$$
 
-Logo:
+$$
+a^2 = aa
+$$
 
-S\Rightarrow011
+$$
+a^3 = aaa
+$$
 
-Podemos gerar:
+$$
+a^4 = aaaa
+$$
 
-\varepsilon,\ 0,\ 1,\ 00,\ 01,\ 10,\ 11,\ 000,\ 001,\ldots
+O símbolo:
 
-Ou seja, podemos gerar qualquer palavra formada pelos símbolos 0 e 1, inclusive a palavra vazia.
+$$
+\mid
+$$
 
-Portanto:
+pode ser lido como:
 
-\boxed{L(G)=\{0,1\}^*}
+> **"tal que"**
 
-Exercício para o estudante
+Assim:
+
+$$
+{a^n \mid n \geq 1}
+$$
+
+pode ser lido:
+
+> **"O conjunto das palavras formadas por n ocorrências de a, tal que n é maior ou igual a 1."**
+
+---
+
+## Exercício para o estudante
 
 Considere:
 
-S\rightarrow aS
+$$
+L = {b^n \mid n \geq 1}
+$$
 
-S\rightarrow bS
-
-S\rightarrow\varepsilon
-
-Responda:
-
-1. Qual é o alfabeto terminal?
-
-
-2. Qual é o símbolo inicial?
-
-
-3. A palavra abba pode ser gerada?
-
-
-4. Faça uma derivação para abba.
-
-
-5. A palavra vazia pertence à linguagem?
-
-
-6. Descreva a linguagem gerada pela gramática.
-
-
-
+1. Escreva as cinco primeiras palavras.
+2. Explique o significado de $b^n$.
+3. A palavra `bbbbbb` pertence à linguagem?
+4. A palavra vazia ($\varepsilon$) pertence à linguagem?
 
 ---
 
-Gabarito dos exercícios para o estudante
+# 6. Linguagem vazia e palavra vazia
 
-Exercício 1
+## Exercício comentado
 
-1. O alfabeto possui 3 símbolos.
+Explique a diferença entre:
 
+$$
+\emptyset
+$$
 
-2. Exemplos: a, b, c, ab, abc.
+e:
 
-
-3. Sim, abcab utiliza somente símbolos de .
-
-
-
-Exercício 2
-
-001 → palavra
-
-1010 → palavra
-
-120 → não é palavra
-
-111 → palavra
-
-00a → não é palavra
-
-
-Exercício 3
-
-1. 0101 → 4
-
-
-2. 111111 → 6
-
-
-3. abcabc → 6
-
-
-4. 10000001 → 8
-
-
-5. aabbab → 6
-
-
-
-Exercício 4
-
-1. Nenhum símbolo.
-
-
-2. .
-
-
-3. Sim. A palavra vazia pode ser elemento de  para qualquer alfabeto .
-
-
-
-Exercício 5
-
-Pertencem:
-
-0,\quad01,\quad011,\quad111
-
-Não pertencem:
-
-00,\quad11,\quad0111
-
-Exercício 6
-
-Pertencem à linguagem:
-
-a,\quad ab,\quad abb,\quad aaab
-
-Não pertencem:
-
-ba,\quad bba
-
-Exercício 7
-
-1. Não terminais:
-
-
-
-\{S,A\}
-
-2. Terminais:
-
-
-
-\{0,1\}
-
-3. Símbolo inicial:
-
-
-
-S
-
-4. Produções:
-
-
-
-S\rightarrow0A
-
-A\rightarrow1
-
-Exercício 8
-
-Uma possível derivação é:
-
-S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab
-
-Para aaaab:
-
-S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaaaS\Rightarrow aaaab
-
-Exercício 9
-
-As cinco primeiras palavras são:
-
-1,\quad01,\quad001,\quad0001,\quad00001
-
-A linguagem é:
-
-L=\{0^n1\mid n\geq0\}
-
-0001 pertence à linguagem.
-
-0010 não pertence.
-
-Exercício 10
-
-1. Terminais:
-
-
-
-\{a,b\}
-
-2. Símbolo inicial:
-
-
-
-S
-
-3. Sim, abba pode ser gerada.
-
-
-4. Uma derivação:
-
-
-
-S\Rightarrow aS\Rightarrow abS\Rightarrow abbS\Rightarrow abbaS\Rightarrow abba
-
-5. Sim, pois:
-
-
-
-S\Rightarrow\varepsilon
-
-6. A linguagem é:
-
-
-
-L=\{a,b\}^*
-
-
----
-
-Resumo dos principais conceitos
-
-Conceito	Significado
-
-Alfabeto 	Conjunto finito de símbolos
-Símbolo	Elemento pertencente ao alfabeto
-Palavra	Sequência finita de símbolos
-	Palavra vazia
-	w
-	Conjunto de todas as palavras sobre , incluindo 
-Linguagem	Conjunto de palavras
-Gramática	Sistema formal usado para gerar palavras
-Terminal	Símbolo que aparece nas palavras geradas
-Não terminal	Símbolo utilizado durante a derivação
-Produção	Regra de transformação da gramática
-Derivação	Aplicação sucessiva das produções
-
-
-
----
-
-Desafio final
-
-Considere a gramática:
-
-S\rightarrow0S
-
-S\rightarrow1S
-
-S\rightarrow\varepsilon
-
-Tente responder sem consultar o gabarito:
-
-1. Qual é o alfabeto?
-
-
-2. Qual é o símbolo inicial?
-
-
-3. Faça uma derivação para 01011.
-
-
-4. Faça uma derivação para 111.
-
-
-5. A palavra 010201 pertence à linguagem?
-
-
-6. Qual é a linguagem gerada pela gramática?
-
-
-
-Objetivo: perceber que uma gramática simples pode representar uma linguagem infinita.
-
-writing{variant="document" id="58321" title="Práticas de Linguagem Formal — Linguagem, Alfabeto e Gramática"}
-# Práticas de Linguagem Formal
-## Linguagem, Alfabeto e Gramática
-
-**Disciplina:** Práticas de Linguagem Formal  
-**Conteúdo:** Linguagem, alfabetos, palavras e gramáticas  
-**Quantidade:** 10 exercícios comentados + 10 exercícios propostos
-
----
-
-## Objetivos
-
-Ao final desta lista, o estudante deverá ser capaz de:
-
-- identificar e representar alfabetos;
-- reconhecer palavras sobre um alfabeto;
-- determinar o comprimento de uma palavra;
-- identificar o símbolo vazio `ε`;
-- verificar se uma palavra pertence a uma linguagem;
-- representar linguagens por extensão e por compreensão;
-- compreender a definição de uma gramática formal;
-- identificar terminais e não terminais;
-- realizar derivações simples;
-- reconhecer palavras geradas por uma gramática.
-
----
-
-# Exercício 1 — Identificando um alfabeto
-
-Considere o conjunto:
-
-\[
-\Sigma = \{0,1\}
-\]
-
-### Questão
-
-O que representa o conjunto \Sigma?
-
-### Resolução comentada
-
-O símbolo \Sigma representa um **alfabeto**.
-
-Um alfabeto é um conjunto finito e não vazio de símbolos que podem ser utilizados para formar palavras.
-
-Neste caso:
-
-\[
-\Sigma = \{0,1\}
-\]
-
-Portanto, o alfabeto possui dois símbolos:
-
-- `0`
-- `1`
-
-Algumas palavras que podem ser formadas sobre esse alfabeto são:
-
-\[
-0,\quad 1,\quad 00,\quad 01,\quad 10,\quad 11,\quad 0101
-\]
-
-Logo, o alfabeto é:
-
-\[
-\boxed{\Sigma=\{0,1\}}
-\]
-
-### Exercício para o estudante
-
-Considere:
-
-\[
-\Sigma = \{a,b,c\}
-\]
-
-1. Quantos símbolos existem no alfabeto?
-2. Liste cinco palavras que podem ser formadas sobre esse alfabeto.
-3. A palavra `abcab` utiliza somente símbolos de \Sigma?
-
----
-
-# Exercício 2 — Verificando se uma sequência é uma palavra
-
-Considere o alfabeto:
-
-\[
-\Sigma = \{a,b\}
-\]
-
-Determine quais das sequências abaixo são palavras sobre \Sigma:
-
-\[
-a,\quad ab,\quad aba,\quad abc,\quad bba
-\]
-
-### Resolução comentada
-
-Uma palavra sobre um alfabeto deve possuir **somente símbolos pertencentes ao alfabeto**.
-
-Como:
-
-\[
-\Sigma=\{a,b\}
-\]
-
-temos:
-
-- `a` → pertence ao alfabeto → **é palavra**
-- `ab` → utiliza `a` e `b` → **é palavra**
-- `aba` → utiliza `a` e `b` → **é palavra**
-- `abc` → contém `c`, que não pertence a \Sigma → **não é palavra**
-- `bba` → utiliza `b` e `a` → **é palavra**
-
-Portanto:
-
-\[
-\boxed{a,\ ab,\ aba,\ bba}
-\]
-
-são palavras sobre \Sigma.
-
-### Exercício para o estudante
-
-Considere:
-
-\[
-\Sigma=\{0,1\}
-\]
-
-Classifique as sequências abaixo como palavras ou não palavras sobre \Sigma:
-
-\[
-001,\quad 1010,\quad 120,\quad 111,\quad 00a
-\]
-
----
-
-# Exercício 3 — Comprimento de uma palavra
-
-Considere a palavra:
-
-\[
-w=101101
-\]
-
-Determine o comprimento de w.
-
-### Resolução comentada
-
-O comprimento de uma palavra é a quantidade de símbolos que ela possui.
-
-A palavra:
-
-\[
-101101
-\]
-
-possui seis símbolos:
-
-\[
-1,\ 0,\ 1,\ 1,\ 0,\ 1
-\]
-
-Logo:
-
-\[
-|w|=6
-\]
-
-Portanto:
-
-\[
-\boxed{|101101|=6}
-\]
-
-### Exercício para o estudante
-
-Determine o comprimento das seguintes palavras:
-
-1. `0101`
-2. `111111`
-3. `abcabc`
-4. `10000001`
-5. `aabbab`
-
----
-
-# Exercício 4 — A palavra vazia
-
-Considere o alfabeto:
-
-\[
-\Sigma=\{a,b\}
-\]
-
-Qual é o comprimento da palavra vazia \varepsilon?
-
-### Resolução comentada
-
-A palavra vazia é representada por:
-
-\[
+$$
 \varepsilon
-\]
+$$
 
-Ela não possui nenhum símbolo.
+### Resolução
 
-Portanto, seu comprimento é:
+Esses dois símbolos possuem significados diferentes.
 
-\[
-|\varepsilon|=0
-\]
+## Conjunto vazio
 
-É importante não confundir a palavra vazia com uma palavra que contém algum símbolo.
+$$
+\emptyset
+$$
 
-Assim:
+representa um conjunto que **não possui elementos**.
 
-\[
-\boxed{|\varepsilon|=0}
-\]
+Uma linguagem vazia pode ser representada por:
 
-### Exercício para o estudante
+$$
+L = \emptyset
+$$
 
-Responda:
+Isso significa:
 
-1. Quantos símbolos existem em \varepsilon?
-2. Qual é o valor de |\varepsilon|?
-3. A palavra vazia pode ser considerada uma palavra sobre qualquer alfabeto?
+> **A linguagem não possui nenhuma palavra.**
 
----
+## Palavra vazia
 
-# Exercício 5 — Linguagem por extensão
+$$
+\varepsilon
+$$
 
-Considere:
+representa uma palavra que possui **zero símbolos**.
 
-\[
-L=\{a,ab,aba\}
-\]
+Uma linguagem que contém somente a palavra vazia é:
 
-### Questão
+$$
+L = {\varepsilon}
+$$
 
-Determine se as palavras abaixo pertencem a L:
+Essa linguagem possui **uma palavra**.
 
-- `a`
-- `b`
-- `ab`
-- `aba`
-- `abab`
-
-### Resolução comentada
-
-A linguagem foi definida explicitamente:
-
-\[
-L=\{a,ab,aba\}
-\]
-
-Portanto, pertencem à linguagem somente as palavras que aparecem no conjunto.
-
-Assim:
-
-\[
-a\in L
-\]
-
-\[
-b\notin L
-\]
-
-\[
-ab\in L
-\]
-
-\[
-aba\in L
-\]
-
-\[
-abab\notin L
-\]
-
-Logo:
-
-| Palavra | Pertence a L? |
-|---|---|
-| `a` | Sim |
-| `b` | Não |
-| `ab` | Sim |
-| `aba` | Sim |
-| `abab` | Não |
-
-### Exercício para o estudante
-
-Considere:
-
-\[
-L=\{0,01,011,111\}
-\]
-
-Determine quais palavras pertencem à linguagem:
-
-\[
-0,\quad 00,\quad 01,\quad 011,\quad 11,\quad 111,\quad 0111
-\]
-
----
-
-# Exercício 6 — Linguagem definida por propriedade
-
-Considere o alfabeto:
-
-\[
-\Sigma=\{0,1\}
-\]
-
-e a linguagem:
-
-\[
-L=\{w\in\Sigma^* \mid w\text{ termina em }1\}
-\]
-
-Determine se as palavras abaixo pertencem a L:
-
-\[
-01,\quad 10,\quad 111,\quad 100,\quad 101
-\]
-
-### Resolução comentada
-
-A condição para pertencer à linguagem é:
-
-> A palavra deve terminar com o símbolo `1`.
-
-Analisando:
-
-- `01` → termina em `1` → pertence.
-- `10` → termina em `0` → não pertence.
-- `111` → termina em `1` → pertence.
-- `100` → termina em `0` → não pertence.
-- `101` → termina em `1` → pertence.
+Essa palavra possui comprimento zero.
 
 Portanto:
 
-\[
-\boxed{01,\ 111,\ 101\in L}
-\]
+$$
+\emptyset \neq {\varepsilon}
+$$
 
-e:
+### Como se lê?
 
-\[
-\boxed{10,\ 100\notin L}
-\]
+$$
+\emptyset
+$$
 
-### Exercício para o estudante
+Lemos:
 
-Considere:
+> **"Conjunto vazio."**
 
-\[
-L=\{w\in\{a,b\}^* \mid w\text{ começa com }a\}
-\]
+$$
+\varepsilon
+$$
 
-Determine quais palavras pertencem a L:
+Lemos:
 
-\[
-a,\quad ab,\quad ba,\quad abb,\quad bba,\quad aaab
-\]
+> **"Épsilon"** ou **"palavra vazia"**.
 
 ---
 
-# Exercício 7 — Identificando uma gramática
+## Exercício para o estudante
 
-Considere a gramática:
+Explique, com suas próprias palavras, a diferença entre:
 
-\[
+### A
+
+$$
+L=\emptyset
+$$
+
+### B
+
+$$
+L={\varepsilon}
+$$
+
+Depois responda:
+
+1. Qual delas possui uma palavra?
+2. Qual delas não possui nenhuma palavra?
+3. Qual é o comprimento da palavra $\varepsilon$?
+
+---
+
+# 7. Estrutura de uma gramática
+
+## Exercício comentado
+
+Considere:
+
+$$
 G=(V,T,P,S)
-\]
+$$
 
 com:
 
-\[
-V=\{S\}
-\]
+$$
+V={S}
+$$
 
-\[
-T=\{a,b\}
-\]
-
-e as produções:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-### Questão
-
-Identifique os conjuntos de símbolos terminais e não terminais.
-
-### Resolução comentada
-
-Uma gramática possui, entre outros elementos:
-
-- símbolos não terminais;
-- símbolos terminais;
-- produções;
-- símbolo inicial.
-
-Neste exemplo:
-
-\[
-V=\{S\}
-\]
-
-é o conjunto dos **não terminais**.
-
-O conjunto:
-
-\[
-T=\{a,b\}
-\]
-
-é o conjunto dos **terminais**.
-
-Portanto:
-
-- Não terminal: `S`
-- Terminais: `a` e `b`
-- Símbolo inicial: `S`
-
-As produções são:
-
-\[
-S\rightarrow aS
-\]
-
-e
-
-\[
-S\rightarrow b
-\]
-
-### Exercício para o estudante
-
-Considere a gramática:
-
-\[
-G=(V,T,P,S)
-\]
-
-com:
-
-\[
-V=\{S,A\}
-\]
-
-\[
-T=\{0,1\}
-\]
+$$
+T={a,b}
+$$
 
 e:
 
-\[
-S\rightarrow 0A
-\]
+$$
+P={S\rightarrow aS,\ S\rightarrow b}
+$$
 
-\[
-A\rightarrow 1
-\]
+### O que significa cada componente?
+
+Uma gramática formal é representada por:
+
+$$
+G=(V,T,P,S)
+$$
+
+### $V$ — Variáveis ou não terminais
+
+Temos:
+
+$$
+V={S}
+$$
+
+O símbolo `S` será utilizado durante a derivação.
+
+### $T$ — Terminais
+
+Temos:
+
+$$
+T={a,b}
+$$
+
+Os terminais são os símbolos que podem aparecer na palavra final.
+
+### $P$ — Produções
+
+Temos:
+
+$$
+P={S\rightarrow aS,\ S\rightarrow b}
+$$
+
+São as regras utilizadas para transformar ou substituir os não terminais.
+
+### $S$ — Símbolo inicial
+
+O símbolo inicial é:
+
+$$
+S
+$$
+
+É por ele que a derivação começa.
+
+### Como se lê?
+
+$$
+G=(V,T,P,S)
+$$
+
+Pode ser lido:
+
+> **"G é uma gramática formada pelo conjunto de variáveis V, conjunto de terminais T, conjunto de produções P e símbolo inicial S."**
+
+---
+
+## Exercício para o estudante
+
+Considere:
+
+$$
+G= ({S,A},{0,1},P,S)
+$$
+
+com:
+
+$$
+P={S\rightarrow0A,\ A\rightarrow1}
+$$
 
 Identifique:
 
-1. Os não terminais.
-2. Os terminais.
-3. O símbolo inicial.
-4. As produções da gramática.
+1. O conjunto de variáveis.
+2. O conjunto de terminais.
+3. O conjunto de produções.
+4. O símbolo inicial.
+5. Qual palavra pode ser gerada por essa gramática?
 
 ---
 
-# Exercício 8 — Realizando uma derivação
+# 8. Como ler e aplicar uma produção
 
-Considere a gramática:
+## Exercício comentado
 
-\[
+Considere a produção:
+
+$$
 S\rightarrow aS
-\]
+$$
 
-\[
-S\rightarrow b
-\]
+### Como se lê?
 
-### Questão
+Podemos ler:
 
-Mostre uma derivação para a palavra:
+> **"S produz aS."**
 
-\[
-aaab
-\]
+Também podemos dizer:
 
-### Resolução comentada
+> **"S pode ser substituído por aS."**
 
-Começamos pelo símbolo inicial:
+O símbolo:
 
-\[
+$$
+\rightarrow
+$$
+
+pode ser lido como:
+
+> **"produz"**
+
+ou:
+
+> **"é substituído por"**.
+
+### Aplicando a regra
+
+Começamos com:
+
+$$
 S
-\]
+$$
 
 Aplicamos a produção:
 
-\[
-S\rightarrow aS
-\]
-
-Obtendo:
-
-\[
+$$
 S\Rightarrow aS
-\]
+$$
 
-Aplicamos novamente:
+Podemos aplicar novamente:
 
-\[
+$$
 aS\Rightarrow aaS
-\]
+$$
 
-Mais uma vez:
+E novamente:
 
-\[
+$$
 aaS\Rightarrow aaaS
-\]
-
-Agora utilizamos:
-
-\[
-S\rightarrow b
-\]
-
-Então:
-
-\[
-aaaS\Rightarrow aaab
-\]
-
-A derivação completa é:
-
-\[
-\boxed{S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab}
-\]
-
-Portanto, a gramática consegue gerar a palavra `aaab`.
-
-### Exercício para o estudante
-
-Utilizando a mesma gramática:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-faça uma derivação para:
-
-\[
-aaab
-\]
-
-Agora tente fazer também uma derivação para:
-
-\[
-aaaab
-\]
-
----
-
-# Exercício 9 — Descobrindo a linguagem de uma gramática
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-### Questão
-
-Descreva a linguagem gerada pela gramática.
-
-### Resolução comentada
-
-A produção:
-
-\[
-S\rightarrow aS
-\]
-
-permite adicionar quantos `a` forem necessários.
-
-A produção:
-
-\[
-S\rightarrow b
-\]
-
-encerra a derivação.
-
-Assim, podemos gerar:
-
-\[
-b
-\]
-
-\[
-ab
-\]
-
-\[
-aab
-\]
-
-\[
-aaab
-\]
-
-\[
-aaaab
-\]
-
-e assim por diante.
-
-Portanto, a linguagem é:
-
-\[
-L=\{a^nb\mid n\geq0\}
-\]
-
-Em palavras: a linguagem contém **qualquer quantidade de símbolos `a`, seguida obrigatoriamente por um `b`**.
-
-### Exercício para o estudante
-
-Considere a gramática:
-
-\[
-S\rightarrow 0S
-\]
-
-\[
-S\rightarrow 1
-\]
-
-1. Escreva as cinco primeiras palavras geradas.
-2. Escreva a linguagem usando uma expressão matemática semelhante a a^nb.
-3. A palavra `0001` pertence à linguagem?
-4. A palavra `0010` pertence à linguagem?
-
----
-
-# Exercício 10 — Analisando uma gramática completa
-
-Considere a gramática:
-
-\[
-G=(V,T,P,S)
-\]
-
-onde:
-
-\[
-V=\{S\}
-\]
-
-\[
-T=\{0,1\}
-\]
-
-e:
-
-\[
-P:
-\begin{cases}
-S\rightarrow 0S\\
-S\rightarrow 1S\\
-S\rightarrow\varepsilon
-\end{cases}
-\]
-
-### Questão
-
-Que linguagem essa gramática gera?
-
-### Resolução comentada
-
-As duas primeiras produções permitem acrescentar `0` ou `1`:
-
-\[
-S\rightarrow0S
-\]
-
-\[
-S\rightarrow1S
-\]
-
-A terceira produção:
-
-\[
-S\rightarrow\varepsilon
-\]
-
-permite finalizar a derivação.
-
-Por exemplo:
-
-\[
-S\Rightarrow0S\Rightarrow01S\Rightarrow011S\Rightarrow011\varepsilon
-\]
-
-Logo:
-
-\[
-S\Rightarrow011
-\]
-
-Podemos gerar:
-
-\[
-\varepsilon,\ 0,\ 1,\ 00,\ 01,\ 10,\ 11,\ 000,\ 001,\ldots
-\]
-
-Ou seja, podemos gerar **qualquer palavra formada pelos símbolos `0` e `1`**, inclusive a palavra vazia.
+$$
 
 Portanto:
 
-\[
-\boxed{L(G)=\{0,1\}^*}
-\]
+$$
+S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS
+$$
 
-### Exercício para o estudante
+### Atenção
 
-Considere:
+A derivação ainda **não terminou**.
 
-\[
-S\rightarrow aS
-\]
+Por quê?
 
-\[
-S\rightarrow bS
-\]
+Porque ainda existe um não terminal:
 
-\[
-S\rightarrow\varepsilon
-\]
+$$
+S
+$$
 
-Responda:
-
-1. Qual é o alfabeto terminal?
-2. Qual é o símbolo inicial?
-3. A palavra `abba` pode ser gerada?
-4. Faça uma derivação para `abba`.
-5. A palavra vazia pertence à linguagem?
-6. Descreva a linguagem gerada pela gramática.
+Uma derivação termina quando não existem mais não terminais.
 
 ---
 
-# Gabarito dos exercícios para o estudante
+## Exercício para o estudante
+
+Considere:
+
+$$
+S\rightarrow0S
+$$
+
+Começando com $S$:
+
+1. Aplique a regra uma vez.
+2. Aplique a regra duas vezes.
+3. Aplique a regra três vezes.
+4. Escreva a sequência completa de derivação.
+
+---
+
+# 9. Derivação completa de uma palavra
+
+## Exercício comentado
+
+Considere a gramática:
+
+$$
+G:
+\begin{cases}
+S\rightarrow aS\
+S\rightarrow b
+\end{cases}
+$$
+
+Queremos gerar:
+
+```text
+aab
+```
+
+### Passo 1 — Começar pelo símbolo inicial
+
+$$
+S
+$$
+
+### Passo 2 — Produzir o primeiro `a`
+
+Utilizamos:
+
+$$
+S\rightarrow aS
+$$
+
+Então:
+
+$$
+S\Rightarrow aS
+$$
+
+### Passo 3 — Produzir o segundo `a`
+
+Ainda temos:
+
+$$
+S
+$$
+
+Aplicamos novamente:
+
+$$
+S\rightarrow aS
+$$
+
+Logo:
+
+$$
+aS\Rightarrow aaS
+$$
+
+### Passo 4 — Produzir `b`
+
+Agora temos:
+
+```text
+aaS
+```
+
+Queremos terminar com `b`.
+
+Utilizamos:
+
+$$
+S\rightarrow b
+$$
+
+Então:
+
+$$
+aaS\Rightarrow aab
+$$
+
+### Derivação completa
+
+$$
+\boxed{S\Rightarrow aS\Rightarrow aaS\Rightarrow aab}
+$$
+
+### Como se lê?
+
+Podemos ler:
+
+> **"S deriva aS."**
+
+> **"aS deriva aaS."**
+
+> **"aaS deriva aab."**
+
+O símbolo:
+
+$$
+\Rightarrow
+$$
+
+representa uma **derivação**, ou seja, uma aplicação de uma regra de produção.
+
+### Quando termina?
+
+A palavra final é:
+
+```text
+aab
+```
+
+Não existe mais `S`.
+
+Portanto, a derivação terminou.
+
+---
+
+## Exercício para o estudante
+
+Utilizando:
+
+$$
+G:
+\begin{cases}
+S\rightarrow aS\
+S\rightarrow b
+\end{cases}
+$$
+
+gere:
+
+$$
+aaab
+$$
+
+**Escreva todos os passos da derivação.**
+
+---
+
+# 10. Identificando palavras geradas por uma gramática
+
+## Exercício comentado
+
+Considere:
+
+$$
+G:
+\begin{cases}
+S\rightarrow0S\
+S\rightarrow1
+\end{cases}
+$$
+
+Pergunta:
+
+> A palavra `001` pode ser gerada pela gramática?
+
+### Passo 1 — Começamos
+
+$$
+S
+$$
+
+Queremos gerar:
+
+```text
+001
+```
+
+O primeiro símbolo é `0`.
+
+Utilizamos:
+
+$$
+S\rightarrow0S
+$$
+
+Portanto:
+
+$$
+S\Rightarrow0S
+$$
+
+### Passo 2
+
+Ainda precisamos produzir:
+
+```text
+01
+```
+
+Aplicamos novamente:
+
+$$
+S\rightarrow0S
+$$
+
+Então:
+
+$$
+0S\Rightarrow00S
+$$
+
+### Passo 3
+
+Agora queremos produzir `1`.
+
+Utilizamos:
+
+$$
+S\rightarrow1
+$$
+
+Logo:
+
+$$
+00S\Rightarrow001
+$$
+
+### Derivação completa
+
+$$
+\boxed{S\Rightarrow0S\Rightarrow00S\Rightarrow001}
+$$
+
+Portanto:
+
+$$
+\boxed{001\in L(G)}
+$$
+
+### Como se lê?
+
+$$
+001\in L(G)
+$$
+
+Lemos:
+
+> **"001 pertence à linguagem gerada pela gramática G."**
+
+### E a palavra `101`?
+
+Observe a gramática:
+
+$$
+S\rightarrow0S
+$$
+
+ou:
+
+$$
+S\rightarrow1
+$$
+
+A regra que produz `1` encerra a derivação.
+
+Portanto, não conseguimos gerar:
+
+```text
+101
+```
+
+porque depois de produzir `1` não podemos voltar a produzir `0`.
+
+Logo:
+
+$$
+\boxed{101\notin L(G)}
+$$
+
+---
+
+## Exercício para o estudante
+
+Considere novamente:
+
+$$
+G:
+\begin{cases}
+S\rightarrow0S\
+S\rightarrow1
+\end{cases}
+$$
+
+Determine se cada palavra pode ser gerada:
+
+1. `1`
+2. `01`
+3. `001`
+4. `0001`
+5. `101`
+6. `1001`
+
+Para as palavras que podem ser geradas, apresente a derivação completa.
+
+---
+
+# Gabarito Comentado
 
 ## Exercício 1
 
-1. O alfabeto possui 3 símbolos.
-2. Exemplos: `a`, `b`, `c`, `ab`, `abc`.
-3. Sim, `abcab` utiliza somente símbolos de \Sigma.
+Considere:
 
-## Exercício 2
+$$
+\Sigma={a,b,c}
+$$
 
-- `001` → palavra
-- `1010` → palavra
-- `120` → não é palavra
-- `111` → palavra
-- `00a` → não é palavra
+### Respostas
 
-## Exercício 3
+1. O alfabeto possui **3 símbolos**.
+2. Os símbolos são:
 
-1. `0101` → 4
-2. `111111` → 6
-3. `abcabc` → 6
-4. `10000001` → 8
-5. `aabbab` → 6
+$$
+a,\ b,\ c
+$$
 
-## Exercício 4
+3. Sim:
 
-1. Nenhum símbolo.
-2. |\varepsilon|=0.
-3. Sim. A palavra vazia pode ser elemento de \Sigma^* para qualquer alfabeto \Sigma.
+$$
+a\in\Sigma
+$$
 
-## Exercício 5
+4. Não:
 
-Pertencem:
+$$
+d\notin\Sigma
+$$
 
-\[
-0,\quad01,\quad011,\quad111
-\]
+5. Exemplos de palavras válidas:
 
-Não pertencem:
+```text
+a
+ab
+abc
+bca
+cab
+```
 
-\[
-00,\quad11,\quad0111
-\]
+### Comentário
 
-## Exercício 6
+Uma palavra pode possuir um ou vários símbolos, desde que todos pertençam ao alfabeto.
 
-Pertencem à linguagem:
+---
 
-\[
-a,\quad ab,\quad abb,\quad aaab
-\]
+# Exercício 2
 
-Não pertencem:
+Para:
 
-\[
-ba,\quad bba
-\]
+$$
+\Sigma={0,1}
+$$
 
-## Exercício 7
+| Sequência | Resposta   | Justificativa                           |
+| --------- | ---------- | --------------------------------------- |
+| `0101`    | Válida     | Todos os símbolos são `0` ou `1`        |
+| `00110`   | Válida     | Todos os símbolos são `0` ou `1`        |
+| `012`     | Não válida | `2` não pertence ao alfabeto            |
+| `111`     | Válida     | Todos os símbolos pertencem ao alfabeto |
+| `10a`     | Não válida | `a` não pertence ao alfabeto            |
 
-1. Não terminais:
+---
 
-\[
-\{S,A\}
-\]
+# Exercício 3
 
-2. Terminais:
+Para:
 
-\[
-\{0,1\}
-\]
+$$
+\Sigma={0,1}
+$$
 
-3. Símbolo inicial:
+### 1.
 
-\[
-S
-\]
+$$
+0\in\Sigma
+$$
 
-4. Produções:
+**Verdadeiro.**
 
-\[
-S\rightarrow0A
-\]
+### 2.
 
-\[
-A\rightarrow1
-\]
+$$
+1\in\Sigma
+$$
 
-## Exercício 8
+**Verdadeiro.**
 
-Uma possível derivação é:
+### 3.
 
-\[
-S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab
-\]
+$$
+01\in\Sigma
+$$
 
-Para `aaaab`:
+**Falso.**
 
-\[
-S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaaaS\Rightarrow aaaab
-\]
+`01` é uma palavra, não um símbolo individual.
 
-## Exercício 9
+### 4.
+
+$$
+01\in\Sigma^*
+$$
+
+**Verdadeiro.**
+
+### 5.
+
+$$
+2\in\Sigma
+$$
+
+**Falso.**
+
+### 6.
+
+$$
+101\in\Sigma^*
+$$
+
+**Verdadeiro.**
+
+Todos os símbolos de `101` pertencem ao alfabeto.
+
+---
+
+# Exercício 4
+
+Para:
+
+$$
+L={0,01,011,0111}
+$$
+
+| Palavra | Pertence a $L$? |
+| ------- | --------------- |
+| `0`     | Sim             |
+| `01`    | Sim             |
+| `0111`  | Sim             |
+| `10`    | Não             |
+| `111`   | Não             |
+| `011`   | Sim             |
+
+### Comentário
+
+Uma palavra pertence à linguagem quando ela é um dos elementos definidos no conjunto.
+
+---
+
+# Exercício 5
+
+$$
+L={b^n\mid n\geq1}
+$$
 
 As cinco primeiras palavras são:
 
-\[
-1,\quad01,\quad001,\quad0001,\quad00001
-\]
+```text
+b
+bb
+bbb
+bbbb
+bbbbb
+```
 
-A linguagem é:
+O símbolo:
 
-\[
-L=\{0^n1\mid n\geq0\}
-\]
+$$
+b^n
+$$
 
-`0001` pertence à linguagem.
+representa `n` ocorrências de `b`.
 
-`0010` não pertence.
+A palavra:
 
-## Exercício 10
+```text
+bbbbbb
+```
 
-1. Terminais:
+possui seis `b`.
 
-\[
-\{a,b\}
-\]
+Logo:
 
-2. Símbolo inicial:
+$$
+bbbbbb=b^6
+$$
 
-\[
+e:
+
+$$
+bbbbbb\in L
+$$
+
+Já:
+
+$$
+\varepsilon\notin L
+$$
+
+porque a condição determina:
+
+$$
+n\geq1
+$$
+
+---
+
+# Exercício 6
+
+### A
+
+$$
+L=\emptyset
+$$
+
+Não possui nenhuma palavra.
+
+### B
+
+$$
+L={\varepsilon}
+$$
+
+Possui exatamente uma palavra:
+
+$$
+\varepsilon
+$$
+
+Essa palavra possui comprimento:
+
+$$
+|\varepsilon|=0
+$$
+
+### Resposta
+
+$$
+\boxed{\emptyset\neq{\varepsilon}}
+$$
+
+---
+
+# Exercício 7
+
+Considere:
+
+$$
+G=({S,A},{0,1},P,S)
+$$
+
+com:
+
+$$
+P={S\rightarrow0A,\ A\rightarrow1}
+$$
+
+### Respostas
+
+**Variáveis:**
+
+$$
+V={S,A}
+$$
+
+**Terminais:**
+
+$$
+T={0,1}
+$$
+
+**Produções:**
+
+$$
+P={S\rightarrow0A,\ A\rightarrow1}
+$$
+
+**Símbolo inicial:**
+
+$$
 S
-\]
+$$
 
-3. Sim, `abba` pode ser gerada.
+### Palavra gerada
 
-4. Uma derivação:
+Começamos:
 
-\[
-S\Rightarrow aS\Rightarrow abS\Rightarrow abbS\Rightarrow abbaS\Rightarrow abba
-\]
+$$
+S
+$$
 
-5. Sim, pois:
+Aplicamos:
 
-\[
-S\Rightarrow\varepsilon
-\]
+$$
+S\rightarrow0A
+$$
 
-6. A linguagem é:
+Então:
 
-\[
-L=\{a,b\}^*
-\]
+$$
+S\Rightarrow0A
+$$
+
+Agora:
+
+$$
+A\rightarrow1
+$$
+
+Logo:
+
+$$
+0A\Rightarrow01
+$$
+
+Portanto:
+
+$$
+\boxed{01}
+$$
 
 ---
 
-# Resumo dos principais conceitos
+# Exercício 8
 
-| Conceito | Significado |
-|---|---|
-| Alfabeto \Sigma | Conjunto finito de símbolos |
-| Símbolo | Elemento pertencente ao alfabeto |
-| Palavra | Sequência finita de símbolos |
-| \varepsilon | Palavra vazia |
-| |w| | Comprimento da palavra w |
-| \Sigma^* | Conjunto de todas as palavras sobre \Sigma, incluindo \varepsilon |
-| Linguagem | Conjunto de palavras |
-| Gramática | Sistema formal usado para gerar palavras |
-| Terminal | Símbolo que aparece nas palavras geradas |
-| Não terminal | Símbolo utilizado durante a derivação |
-| Produção | Regra de transformação da gramática |
-| Derivação | Aplicação sucessiva das produções |
+Aplicando:
+
+$$
+S\rightarrow0S
+$$
+
+três vezes:
+
+$$
+S
+\Rightarrow0S
+\Rightarrow00S
+\Rightarrow000S
+$$
+
+### Resposta
+
+$$
+\boxed{000S}
+$$
+
+### Atenção
+
+A derivação ainda não terminou porque existe o não terminal:
+
+$$
+S
+$$
 
 ---
 
-## Desafio final
+# Exercício 9
 
-Considere a gramática:
+Para gerar:
 
-\[
-S\rightarrow0S
-\]
+```text
+aaab
+```
 
-\[
-S\rightarrow1S
-\]
+temos:
 
-\[
-S\rightarrow\varepsilon
-\]
-
-Tente responder sem consultar o gabarito:
-
-1. Qual é o alfabeto?
-2. Qual é o símbolo inicial?
-3. Faça uma derivação para `01011`.
-4. Faça uma derivação para `111`.
-5. A palavra `010201` pertence à linguagem?
-6. Qual é a linguagem gerada pela gramática?
-
-**Objetivo:** perceber que uma gramática simples pode representar uma linguagem infinita.2. Versão LaTeX para gerar o PDF
-
-writing{variant="document" id="74106" title="Práticas de Linguagem Formal — Versão PDF em LaTeX"}
-
-\documentclass[12pt,a4paper]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[brazil]{babel}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{xcolor}
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{fancyhdr}
-
-\geometry{
-    a4paper,
-    left=2.5cm,
-    right=2.5cm,
-    top=2.5cm,
-    bottom=2.5cm
-}
-
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{Práticas de Linguagem Formal}
-\lhead{Linguagem, Alfabeto e Gramática}
-\cfoot{\thepage}
-
-\title{
-    \textbf{Práticas de Linguagem Formal}\\
-    \large Linguagem, Alfabeto e Gramática
-}
-
-\author{}
-\date{}
-
-\begin{document}
-
-\maketitle
-
-\section*{Objetivos}
-
-Ao final desta lista, o estudante deverá ser capaz de:
-
-\begin{itemize}
-    \item identificar e representar alfabetos;
-    \item reconhecer palavras sobre um alfabeto;
-    \item determinar o comprimento de uma palavra;
-    \item identificar a palavra vazia $\varepsilon$;
-    \item verificar se uma palavra pertence a uma linguagem;
-    \item representar linguagens por extensão e por compreensão;
-    \item compreender a definição de uma gramática formal;
-    \item identificar terminais e não terminais;
-    \item realizar derivações simples;
-    \item reconhecer palavras geradas por uma gramática.
-\end{itemize}
-
-\section{Exercício 1 -- Identificando um alfabeto}
-
-Considere:
-
-\[
-\Sigma=\{0,1\}
-\]
-
-O conjunto $\Sigma$ representa um \textbf{alfabeto}.
-
-Um alfabeto é um conjunto finito e não vazio de símbolos que podem ser utilizados para formar palavras.
-
-Neste caso, o alfabeto possui os símbolos $0$ e $1$.
-
-Exemplos de palavras:
-
-\[
-0,\quad 1,\quad 00,\quad 01,\quad 10,\quad 11,\quad 0101
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-\Sigma=\{a,b,c\}
-\]
-
-\begin{enumerate}
-    \item Quantos símbolos existem no alfabeto?
-    \item Liste cinco palavras que podem ser formadas.
-    \item A palavra $abcab$ utiliza somente símbolos de $\Sigma$?
-\end{enumerate}
-
-\section{Exercício 2 -- Verificando uma palavra}
-
-Considere:
-
-\[
-\Sigma=\{a,b\}
-\]
-
-Classifique:
-
-\[
-a,\quad ab,\quad aba,\quad abc,\quad bba
-\]
-
-Uma palavra sobre um alfabeto deve conter somente símbolos pertencentes ao alfabeto.
-
-Assim:
-
-\[
-a,\ ab,\ aba,\ bba
-\]
-
-são palavras sobre $\Sigma$.
-
-A sequência $abc$ não é uma palavra sobre $\Sigma$, pois contém o símbolo $c$.
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-\Sigma=\{0,1\}
-\]
-
-Classifique:
-
-\[
-001,\quad1010,\quad120,\quad111,\quad00a
-\]
-
-como palavras ou não palavras sobre $\Sigma$.
-
-\section{Exercício 3 -- Comprimento}
-
-Considere:
-
-\[
-w=101101
-\]
-
-O comprimento de uma palavra corresponde à quantidade de símbolos que ela possui.
-
-Como $101101$ possui seis símbolos:
-
-\[
-|w|=6
-\]
-
-Logo:
-
-\[
-\boxed{|101101|=6}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Determine:
-
-\begin{enumerate}
-    \item $|0101|$
-    \item $|111111|$
-    \item $|abcabc|$
-    \item $|10000001|$
-    \item $|aabbab|$
-\end{enumerate}
-
-\section{Exercício 4 -- Palavra vazia}
-
-A palavra vazia é representada por:
-
-\[
-\varepsilon
-\]
-
-Ela não possui nenhum símbolo.
-
-Portanto:
-
-\[
-\boxed{|\varepsilon|=0}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Responda:
-
-\begin{enumerate}
-    \item Quantos símbolos existem em $\varepsilon$?
-    \item Qual é o valor de $|\varepsilon|$?
-    \item A palavra vazia pode ser considerada uma palavra sobre qualquer alfabeto?
-\end{enumerate}
-
-\section{Exercício 5 -- Linguagem por extensão}
-
-Considere:
-
-\[
-L=\{a,ab,aba\}
-\]
-
-As palavras $a$, $ab$ e $aba$ pertencem a $L$.
-
-As palavras $b$ e $abab$ não pertencem a $L$.
-
-\[
-a\in L,\qquad ab\in L,\qquad aba\in L
-\]
-
-\[
-b\notin L,\qquad abab\notin L
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-L=\{0,01,011,111\}
-\]
-
-Determine quais pertencem a $L$:
-
-\[
-0,\quad00,\quad01,\quad011,\quad11,\quad111,\quad0111
-\]
-
-\section{Exercício 6 -- Linguagem definida por propriedade}
-
-Considere:
-
-\[
-L=\{w\in\{0,1\}^*\mid w\text{ termina em }1\}
-\]
-
-Analisando:
-
-\[
-01\in L
-\]
-
-\[
-10\notin L
-\]
-
-\[
-111\in L
-\]
-
-\[
-100\notin L
-\]
-
-\[
-101\in L
-\]
-
-Portanto:
-
-\[
-\boxed{01,\ 111,\ 101\in L}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-L=\{w\in\{a,b\}^*\mid w\text{ começa com }a\}
-\]
-
-Determine quais pertencem a $L$:
-
-\[
-a,\quad ab,\quad ba,\quad abb,\quad bba,\quad aaab
-\]
-
-\section{Exercício 7 -- Identificando uma gramática}
-
-Considere:
-
-\[
-G=(V,T,P,S)
-\]
-
-com:
-
-\[
-V=\{S\}
-\]
-
-\[
-T=\{a,b\}
-\]
-
-e:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-O conjunto $V$ representa os não terminais.
-
-O conjunto $T$ representa os terminais.
-
-Portanto:
-
-\[
-V=\{S\}
-\]
-
-é o conjunto de não terminais e:
-
-\[
-T=\{a,b\}
-\]
-
-é o conjunto de terminais.
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-V=\{S,A\},\qquad T=\{0,1\}
-\]
-
-e:
-
-\[
-S\rightarrow0A
-\]
-
-\[
-A\rightarrow1
-\]
-
-Identifique os não terminais, terminais, símbolo inicial e produções.
-
-\section{Exercício 8 -- Derivação}
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-Uma derivação para $aaab$ é:
-
-\[
-S\Rightarrow aS
+$$
+S
+\Rightarrow aS
 \Rightarrow aaS
 \Rightarrow aaaS
 \Rightarrow aaab
-\]
-
-Logo:
-
-\[
-\boxed{S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Utilizando a mesma gramática, faça uma derivação para:
-
-\[
-aaaab
-\]
-
-\section{Exercício 9 -- Linguagem de uma gramática}
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-Podemos gerar:
-
-\[
-b,\quad ab,\quad aab,\quad aaab,\quad aaaab,\ldots
-\]
+$$
 
 Portanto:
 
-\[
-\boxed{L=\{a^nb\mid n\geq0\}}
-\]
+$$
+\boxed{aaab\in L(G)}
+$$
 
-\subsection*{Exercício para o estudante}
+### Como pensar?
 
-Considere:
+Cada aplicação:
 
-\[
-S\rightarrow0S
-\]
+$$
+S\rightarrow aS
+$$
 
-\[
+adiciona um `a`.
+
+Quando já temos a quantidade necessária de `a`, utilizamos:
+
+$$
+S\rightarrow b
+$$
+
+para finalizar.
+
+---
+
+# Exercício 10
+
+Gramática:
+
+$$
+G:
+\begin{cases}
+S\rightarrow0S\
 S\rightarrow1
-\]
+\end{cases}
+$$
 
-\begin{enumerate}
-    \item Escreva as cinco primeiras palavras.
-    \item Represente a linguagem matematicamente.
-    \item Verifique se $0001$ pertence à linguagem.
-    \item Verifique se $0010$ pertence à linguagem.
-\end{enumerate}
+### 1. `1`
 
-\section{Exercício 10 -- Gramática completa}
+Sim:
 
-Considere:
+$$
+S\Rightarrow1
+$$
 
-\[
-S\rightarrow0S
-\]
+### 2. `01`
 
-\[
-S\rightarrow1S
-\]
+Sim:
 
-\[
-S\rightarrow\varepsilon
-\]
+$$
+S\Rightarrow0S\Rightarrow01
+$$
 
-As produções permitem acrescentar qualquer quantidade de $0$ e $1$.
+### 3. `001`
 
-A produção:
+Sim:
 
-\[
-S\rightarrow\varepsilon
-\]
+$$
+S\Rightarrow0S\Rightarrow00S\Rightarrow001
+$$
 
-permite finalizar a derivação.
+### 4. `0001`
 
-Por exemplo:
+Sim:
 
-\[
+$$
 S\Rightarrow0S
-\Rightarrow01S
-\Rightarrow011S
-\Rightarrow011\varepsilon
-\]
+\Rightarrow00S
+\Rightarrow000S
+\Rightarrow0001
+$$
 
-Logo:
+### 5. `101`
 
-\[
-S\Rightarrow011
-\]
+Não.
 
-A gramática gera qualquer palavra formada por $0$ e $1$, inclusive a palavra vazia.
+Depois que utilizamos:
 
-Portanto:
-
-\[
-\boxed{L(G)=\{0,1\}^*}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow bS
-\]
-
-\[
-S\rightarrow\varepsilon
-\]
-
-Responda:
-
-\begin{enumerate}
-    \item Qual é o alfabeto terminal?
-    \item Qual é o símbolo inicial?
-    \item A palavra $abba$ pode ser gerada?
-    \item Faça uma derivação para $abba$.
-    \item A palavra vazia pertence à linguagem?
-    \item Descreva a linguagem gerada.
-\end{enumerate}
-
-\section*{Desafio final}
-
-Considere:
-
-\[
-S\rightarrow0S
-\]
-
-\[
-S\rightarrow1S
-\]
-
-\[
-S\rightarrow\varepsilon
-\]
-
-Responda:
-
-\begin{enumerate}
-    \item Qual é o alfabeto?
-    \item Qual é o símbolo inicial?
-    \item Faça uma derivação para $01011$.
-    \item Faça uma derivação para $111$.
-    \item A palavra $010201$ pertence à linguagem?
-    \item Qual é a linguagem gerada?
-\end{enumerate}
-
-\section*{Resumo}
-
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-\textbf{Conceito} & \textbf{Significado}\\
-\midrule
-Alfabeto $\Sigma$ & Conjunto finito de símbolos\\
-Palavra & Sequência finita de símbolos\\
-$\varepsilon$ & Palavra vazia\\
-$|w|$ & Comprimento de uma palavra\\
-$\Sigma^*$ & Todas as palavras sobre $\Sigma$\\
-Linguagem & Conjunto de palavras\\
-Gramática & Sistema formal para gerar palavras\\
-Terminal & Símbolo utilizado nas palavras\\
-Não terminal & Símbolo usado durante derivações\\
-Produção & Regra da gramática\\
-Derivação & Aplicação sucessiva das produções\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\end{document}
-
-Para gerar o PDF, salve o segundo conteúdo como praticas-linguagem-formal.tex e compile com LaTeX (por exemplo, pdflatex praticas-linguagem-formal.tex). O primeiro arquivo pode ser salvo diretamente como README.md para o GitHub.
-
-writing{variant="document" id="74106" title="Práticas de Linguagem Formal — Versão PDF em LaTeX"}
-```latex
-\documentclass[12pt,a4paper]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[brazil]{babel}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{xcolor}
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{fancyhdr}
-
-\geometry{
-    a4paper,
-    left=2.5cm,
-    right=2.5cm,
-    top=2.5cm,
-    bottom=2.5cm
-}
-
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{Práticas de Linguagem Formal}
-\lhead{Linguagem, Alfabeto e Gramática}
-\cfoot{\thepage}
-
-\title{
-    \textbf{Práticas de Linguagem Formal}\\
-    \large Linguagem, Alfabeto e Gramática
-}
-
-\author{}
-\date{}
-
-\begin{document}
-
-\maketitle
-
-\section*{Objetivos}
-
-Ao final desta lista, o estudante deverá ser capaz de:
-
-\begin{itemize}
-    \item identificar e representar alfabetos;
-    \item reconhecer palavras sobre um alfabeto;
-    \item determinar o comprimento de uma palavra;
-    \item identificar a palavra vazia $\varepsilon$;
-    \item verificar se uma palavra pertence a uma linguagem;
-    \item representar linguagens por extensão e por compreensão;
-    \item compreender a definição de uma gramática formal;
-    \item identificar terminais e não terminais;
-    \item realizar derivações simples;
-    \item reconhecer palavras geradas por uma gramática.
-\end{itemize}
-
-\section{Exercício 1 -- Identificando um alfabeto}
-
-Considere:
-
-\[
-\Sigma=\{0,1\}
-\]
-
-O conjunto $\Sigma$ representa um \textbf{alfabeto}.
-
-Um alfabeto é um conjunto finito e não vazio de símbolos que podem ser utilizados para formar palavras.
-
-Neste caso, o alfabeto possui os símbolos $0$ e $1$.
-
-Exemplos de palavras:
-
-\[
-0,\quad 1,\quad 00,\quad 01,\quad 10,\quad 11,\quad 0101
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-\Sigma=\{a,b,c\}
-\]
-
-\begin{enumerate}
-    \item Quantos símbolos existem no alfabeto?
-    \item Liste cinco palavras que podem ser formadas.
-    \item A palavra $abcab$ utiliza somente símbolos de $\Sigma$?
-\end{enumerate}
-
-\section{Exercício 2 -- Verificando uma palavra}
-
-Considere:
-
-\[
-\Sigma=\{a,b\}
-\]
-
-Classifique:
-
-\[
-a,\quad ab,\quad aba,\quad abc,\quad bba
-\]
-
-Uma palavra sobre um alfabeto deve conter somente símbolos pertencentes ao alfabeto.
-
-Assim:
-
-\[
-a,\ ab,\ aba,\ bba
-\]
-
-são palavras sobre $\Sigma$.
-
-A sequência $abc$ não é uma palavra sobre $\Sigma$, pois contém o símbolo $c$.
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-\Sigma=\{0,1\}
-\]
-
-Classifique:
-
-\[
-001,\quad1010,\quad120,\quad111,\quad00a
-\]
-
-como palavras ou não palavras sobre $\Sigma$.
-
-\section{Exercício 3 -- Comprimento}
-
-Considere:
-
-\[
-w=101101
-\]
-
-O comprimento de uma palavra corresponde à quantidade de símbolos que ela possui.
-
-Como $101101$ possui seis símbolos:
-
-\[
-|w|=6
-\]
-
-Logo:
-
-\[
-\boxed{|101101|=6}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Determine:
-
-\begin{enumerate}
-    \item $|0101|$
-    \item $|111111|$
-    \item $|abcabc|$
-    \item $|10000001|$
-    \item $|aabbab|$
-\end{enumerate}
-
-\section{Exercício 4 -- Palavra vazia}
-
-A palavra vazia é representada por:
-
-\[
-\varepsilon
-\]
-
-Ela não possui nenhum símbolo.
-
-Portanto:
-
-\[
-\boxed{|\varepsilon|=0}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Responda:
-
-\begin{enumerate}
-    \item Quantos símbolos existem em $\varepsilon$?
-    \item Qual é o valor de $|\varepsilon|$?
-    \item A palavra vazia pode ser considerada uma palavra sobre qualquer alfabeto?
-\end{enumerate}
-
-\section{Exercício 5 -- Linguagem por extensão}
-
-Considere:
-
-\[
-L=\{a,ab,aba\}
-\]
-
-As palavras $a$, $ab$ e $aba$ pertencem a $L$.
-
-As palavras $b$ e $abab$ não pertencem a $L$.
-
-\[
-a\in L,\qquad ab\in L,\qquad aba\in L
-\]
-
-\[
-b\notin L,\qquad abab\notin L
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-L=\{0,01,011,111\}
-\]
-
-Determine quais pertencem a $L$:
-
-\[
-0,\quad00,\quad01,\quad011,\quad11,\quad111,\quad0111
-\]
-
-\section{Exercício 6 -- Linguagem definida por propriedade}
-
-Considere:
-
-\[
-L=\{w\in\{0,1\}^*\mid w\text{ termina em }1\}
-\]
-
-Analisando:
-
-\[
-01\in L
-\]
-
-\[
-10\notin L
-\]
-
-\[
-111\in L
-\]
-
-\[
-100\notin L
-\]
-
-\[
-101\in L
-\]
-
-Portanto:
-
-\[
-\boxed{01,\ 111,\ 101\in L}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-L=\{w\in\{a,b\}^*\mid w\text{ começa com }a\}
-\]
-
-Determine quais pertencem a $L$:
-
-\[
-a,\quad ab,\quad ba,\quad abb,\quad bba,\quad aaab
-\]
-
-\section{Exercício 7 -- Identificando uma gramática}
-
-Considere:
-
-\[
-G=(V,T,P,S)
-\]
-
-com:
-
-\[
-V=\{S\}
-\]
-
-\[
-T=\{a,b\}
-\]
-
-e:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-O conjunto $V$ representa os não terminais.
-
-O conjunto $T$ representa os terminais.
-
-Portanto:
-
-\[
-V=\{S\}
-\]
-
-é o conjunto de não terminais e:
-
-\[
-T=\{a,b\}
-\]
-
-é o conjunto de terminais.
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-V=\{S,A\},\qquad T=\{0,1\}
-\]
-
-e:
-
-\[
-S\rightarrow0A
-\]
-
-\[
-A\rightarrow1
-\]
-
-Identifique os não terminais, terminais, símbolo inicial e produções.
-
-\section{Exercício 8 -- Derivação}
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-Uma derivação para $aaab$ é:
-
-\[
-S\Rightarrow aS
-\Rightarrow aaS
-\Rightarrow aaaS
-\Rightarrow aaab
-\]
-
-Logo:
-
-\[
-\boxed{S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Utilizando a mesma gramática, faça uma derivação para:
-
-\[
-aaaab
-\]
-
-\section{Exercício 9 -- Linguagem de uma gramática}
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow b
-\]
-
-Podemos gerar:
-
-\[
-b,\quad ab,\quad aab,\quad aaab,\quad aaaab,\ldots
-\]
-
-Portanto:
-
-\[
-\boxed{L=\{a^nb\mid n\geq0\}}
-\]
-
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-S\rightarrow0S
-\]
-
-\[
+$$
 S\rightarrow1
-\]
+$$
 
-\begin{enumerate}
-    \item Escreva as cinco primeiras palavras.
-    \item Represente a linguagem matematicamente.
-    \item Verifique se $0001$ pertence à linguagem.
-    \item Verifique se $0010$ pertence à linguagem.
-\end{enumerate}
+a derivação termina.
 
-\section{Exercício 10 -- Gramática completa}
+Não é possível produzir outro `0` ou `1`.
 
-Considere:
+### 6. `1001`
 
-\[
-S\rightarrow0S
-\]
+Não.
 
-\[
-S\rightarrow1S
-\]
+A gramática permite:
 
-\[
-S\rightarrow\varepsilon
-\]
+```text
+zero ou mais 0
++
+um 1 final
+```
 
-As produções permitem acrescentar qualquer quantidade de $0$ e $1$.
+Portanto, palavras válidas possuem o formato:
 
-A produção:
+```text
+000...001
+```
 
-\[
-S\rightarrow\varepsilon
-\]
+A palavra `1001` começa com `1` e depois possui outros símbolos, o que não é permitido.
 
-permite finalizar a derivação.
+---
 
-Por exemplo:
+# Resumo dos conceitos
 
-\[
-S\Rightarrow0S
-\Rightarrow01S
-\Rightarrow011S
-\Rightarrow011\varepsilon
-\]
+| Conceito           | Significado                                                           |
+| ------------------ | --------------------------------------------------------------------- |
+| $\Sigma$           | Alfabeto                                                              |
+| `a`, `b`, `0`, `1` | Símbolos                                                              |
+| $w$                | Palavra                                                               |
+| $L$                | Linguagem                                                             |
+| $\Sigma^*$         | Conjunto de todas as palavras sobre $\Sigma$, incluindo $\varepsilon$ |
+| $\varepsilon$      | Palavra vazia                                                         |
+| $\emptyset$        | Conjunto vazio                                                        |
+| $w\in L$           | A palavra $w$ pertence à linguagem                                    |
+| $w\notin L$        | A palavra $w$ não pertence à linguagem                                |
+| $G$                | Gramática                                                             |
+| $V$                | Variáveis/não terminais                                               |
+| $T$                | Terminais                                                             |
+| $P$                | Produções                                                             |
+| $S$                | Símbolo inicial                                                       |
+| $\rightarrow$      | Produção/regra                                                        |
+| $\Rightarrow$      | Derivação                                                             |
 
-Logo:
+---
 
-\[
-S\Rightarrow011
-\]
+# Checklist de estudo
 
-A gramática gera qualquer palavra formada por $0$ e $1$, inclusive a palavra vazia.
+Antes de avançar para os próximos conteúdos, verifique se você consegue:
 
-Portanto:
+* [ ] Explicar o que é um alfabeto.
+* [ ] Identificar os símbolos de um alfabeto.
+* [ ] Diferenciar símbolo de palavra.
+* [ ] Explicar o que é uma linguagem.
+* [ ] Verificar se uma palavra pertence a uma linguagem.
+* [ ] Interpretar $\Sigma^*$.
+* [ ] Diferenciar $\emptyset$ de $\varepsilon$.
+* [ ] Interpretar $w\in L$.
+* [ ] Identificar os componentes de uma gramática.
+* [ ] Ler uma regra como $S\rightarrow aS$.
+* [ ] Realizar uma derivação passo a passo.
+* [ ] Identificar quando uma derivação termina.
+* [ ] Determinar se uma palavra pode ser gerada por uma gramática.
 
-\[
-\boxed{L(G)=\{0,1\}^*}
-\]
+---
 
-\subsection*{Exercício para o estudante}
-
-Considere:
-
-\[
-S\rightarrow aS
-\]
-
-\[
-S\rightarrow bS
-\]
-
-\[
-S\rightarrow\varepsilon
-\]
-
-Responda:
-
-\begin{enumerate}
-    \item Qual é o alfabeto terminal?
-    \item Qual é o símbolo inicial?
-    \item A palavra $abba$ pode ser gerada?
-    \item Faça uma derivação para $abba$.
-    \item A palavra vazia pertence à linguagem?
-    \item Descreva a linguagem gerada.
-\end{enumerate}
-
-\section*{Desafio final}
+# Desafio final
 
 Considere:
 
-\[
-S\rightarrow0S
-\]
+$$
+G:
+\begin{cases}
+S\rightarrow aS\
+S\rightarrow b
+\end{cases}
+$$
 
-\[
-S\rightarrow1S
-\]
+Responda sem consultar o gabarito:
 
-\[
-S\rightarrow\varepsilon
-\]
+### 1.
 
-Responda:
+A palavra `b` pode ser gerada?
 
-\begin{enumerate}
-    \item Qual é o alfabeto?
-    \item Qual é o símbolo inicial?
-    \item Faça uma derivação para $01011$.
-    \item Faça uma derivação para $111$.
-    \item A palavra $010201$ pertence à linguagem?
-    \item Qual é a linguagem gerada?
-\end{enumerate}
+### 2.
 
-\section*{Resumo}
+A palavra `ab` pode ser gerada?
 
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-\textbf{Conceito} & \textbf{Significado}\\
-\midrule
-Alfabeto $\Sigma$ & Conjunto finito de símbolos\\
-Palavra & Sequência finita de símbolos\\
-$\varepsilon$ & Palavra vazia\\
-$|w|$ & Comprimento de uma palavra\\
-$\Sigma^*$ & Todas as palavras sobre $\Sigma$\\
-Linguagem & Conjunto de palavras\\
-Gramática & Sistema formal para gerar palavras\\
-Terminal & Símbolo utilizado nas palavras\\
-Não terminal & Símbolo usado durante derivações\\
-Produção & Regra da gramática\\
-Derivação & Aplicação sucessiva das produções\\
-\bottomrule
-\end{tabular}
-\end{center}
+### 3.
 
+A palavra `aab` pode ser gerada?
+
+### 4.
+
+A palavra `aaab` pode ser gerada?
+
+### 5.
+
+A palavra `aba` pode ser gerada?
+
+### 6.
+
+Escreva a derivação completa de `aaaab`.
+
+### 7.
+
+Descreva, com suas palavras, o padrão das palavras geradas por essa gramática.
+
+> **Dica:** observe o que acontece quando aplicamos várias vezes $S\rightarrow aS$ e, finalmente, utilizamos $S\rightarrow b$.
