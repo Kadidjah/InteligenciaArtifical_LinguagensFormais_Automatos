@@ -1,0 +1,38 @@
+  Responda: 
+1. Quantos símbolos existem no alfabeto? 
+R:3 
+2. Quais são os símbolos? 
+R:3 
+3. O símbolo a pertence ao alfabeto? 
+R:Sim 
+4. O símbolo d pertence ao alfabeto? 
+R:Não  
+5. Escreva uma palavra formada por símbolos desse alfabeto. 
+R:aab
+
+
+Classifique cada sequência como palavra válida ou não válida:
+
+Sequência           Válida?             Justificativa
+  0101               Sim                 Os símbolos pertencem ao alfabeto.
+ 00110               Sim                 Os símbolos pertencem ao alfabeto.
+  012                Não                 O símbolo 2 não pertence ao alfabeto. 
+  111                Sim                 Os símbolos pertencem ao alfabeto.
+ 10a                 Não                 O símbolo a não pertence ao alfabeto
+                 
+ 
+Considere:
+Σ =0,1 
+Determine se as afirmações são verdadeiras ou falsas: 
+1. 0 ∈Σ 
+R: Verdadeira, pois 0 pertence ao alfabeto. 
+2. 1 ∈Σ 
+R: Verdadeira, pois 1 pertence ao alfabeto. 
+3. 01∈ Σ 
+R: Verdadeira, pois os dois elementos pertencem ao alfabeto. 
+4. 01∈ Σ∗ 
+R: Verdadeira, pois os dois elementos pertencem ao alfabeto. 
+5. 2 ∈Σ 
+R:Falsa, pois o elemento 2 não pertence ao alfabeto. 
+6. 101∈ Σ∗ 
+R:Falsa, pois o elemento 101 não pertence ao alfabeto. 
