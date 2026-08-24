@@ -1,0 +1,32 @@
+Wellington Félix
+
+Atividade 1 — Prefixos e Sufixos
+Considere a palavra:
+
+ab
+Pergunta
+Liste os prefixos e sufixos.
+
+R:
+
+Prefixos:
+
+{ε, a, ab}
+
+Sufixos:
+
+{ε, b, ab}
+
+---------------------------------------------------------
+ Atividade 2 — Gramática
+Considere:
+
+G = ({S}, {a}, {S → aS | ε}, S)
+Pergunta
+
+Liste 3 palavras geradas.
+
+R:
+ε
+a
+aa
